@@ -1,0 +1,14 @@
+services:
+  rollu:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_PATH: /data/rollu.sqlite3
+    restart: unless-stopped
+    volumes:
+      - rollu_data:/data
+volumes:
+  rollu_data:
